@@ -1,11 +1,11 @@
 $(document).ready(function(){
-    $("bt1").click(function(){
+    $("button.btn_hide").click(function(){
         $("p").hide();
     });
 });
 
 $(document).ready(function(){
-    $("bt2").click(function(){
+    $("button.btn_show").click(function(){
         $("p").show();
     });
 });

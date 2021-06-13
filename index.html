@@ -9,27 +9,14 @@
     <title>ranonsew</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./script1.js"></script>
-    <script>
-        $(document).ready(function(){
-            $("bt1").click(function(){
-                $("p").hide();
-            });
-        });
-
-        $(document).ready(function(){
-            $("bt2").click(function(){
-                $("p").show();
-            });
-        });
-    </script>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
     <header>First website</header> <!--header area: logo or name or something-->
     <nav>Home | Yes | No | About</nav> <!--top nav bar-->
-    <div id="side_1"><button id="bt1">Hide Shown</button></div> <!--side bar 1-->
+    <div id="side_1"><button class="btn_hide">Hide Shown</button></div> <!--side bar 1-->
     <section><p>Hello, World!</p></section> <!--main content area-->
-    <div id="side_2"><button id="bt2">Show Hidden</button></div> <!--side bar 2-->
+    <div id="side_2"><button class="btn_show">Show Hidden</button></div> <!--side bar 2-->
     <footer>Footer</footer> <!--bottom footer-->
     
 </body>
