@@ -6,15 +6,24 @@ p {
     max-width: 50px;
 }
 
-nav a, nav a:link, nav a:visited {
+nav {
+    max-width: 100%;
+    overflow: auto;
+}
+
+nav a {
+    max-width: 25%;
+    float: left;
+    border: 1px solid aquamarine;
+}
+
+nav a:link, nav a:visited {
     display: inline-block;
-    padding: 4px;
+    padding: 8px;
     background-color: lightgoldenrodyellow;
     color: aquamarine;
-    border: 4px aquamarine;
     text-align: center;
     text-decoration: none;
-    float: left;
 }
 
 nav a.active, nav a:hover, nav a:active {
@@ -22,6 +31,11 @@ nav a.active, nav a:hover, nav a:active {
     color: lightgoldenrodyellow;
 }
 
-div {
+/* div {
     display: block;
+} */
+
+footer {
+    max-width: 100%;
+    overflow: auto;
 }
