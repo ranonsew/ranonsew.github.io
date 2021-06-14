@@ -11,10 +11,10 @@ nav a, nav a:link, nav a:visited {
     padding: 4px;
     background-color: lightgoldenrodyellow;
     color: aquamarine;
-    border: 2px;
-    border-color: aquamarine;
+    border: 4px aquamarine;
     text-align: center;
     text-decoration: none;
+    float: left;
 }
 
 nav a.active, nav a:hover, nav a:active {
