@@ -5,3 +5,19 @@ p {
     text-align: center;
     max-width: 50px;
 }
+
+nav a, nav a:link, nav a:visited {
+    display: inline-block;
+    padding: 4px;
+    background-color: lightgoldenrodyellow;
+    color: aquamarine;
+    border: 2px;
+    border-color: aquamarine;
+    text-align: center;
+    text-decoration: none;
+}
+
+nav a.active, nav a:hover, nav a:active {
+    background-color: aquamarine;
+    color: lightgoldenrodyellow;
+}
