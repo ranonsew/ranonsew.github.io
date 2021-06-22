@@ -4,10 +4,6 @@ html {
 
 p {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: aqua;
-    background-color: azure;
-    text-align: center;
-    max-width: 150px;
 }
 
 header {
