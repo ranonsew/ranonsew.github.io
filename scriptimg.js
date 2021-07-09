@@ -8,3 +8,20 @@ const probably = (first, second) => {
 }
 
 console.log(probably(yes, perhaps()));
+
+myArr = [
+    {
+        name: "forsaken",
+        email: "forsaken@word.exe"
+    },
+    {
+        name: "bob",
+        email: "bob@showpls.net"
+    },
+    {
+        name: "polygone",
+        email: "polygone@wheresmypolygons.org"
+    }
+];
+
+console.log(myArr);
