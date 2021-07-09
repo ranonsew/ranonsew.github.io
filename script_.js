@@ -5,3 +5,4 @@ const anotherTest = (x) => {
 }
 
 console.log(anotherTest(2));
+console.log("yes");
