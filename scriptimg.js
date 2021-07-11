@@ -88,7 +88,8 @@ emp_arr = [
     new Employee("Jennifer Jenn", 1325, 30, "jen@gmail.com", "F", "Manager"),
     new Employee("Lisa Tan", 1398, 27, "lisa.tan@yahoo.com.au", "F", "CEO"),
     new Employee("Bouken da Bouken", 1894, 20, "bennet@hotmail.com", "M", "intern"),
-    new Employee("Fujiwara Takumi", 1985, 18, "takumi@fujiwaratofu.org", "M", "driver")
+    new Employee("Fujiwara Takumi", 1985, 18, "takumi@fujiwaratofu.org", "M", "driver"),
+    new Employee("Ray", 1565, 20, undefined, "M", "person") // example of someone without an email
 ];
 
 // console.log(emp_arr[0].name);
@@ -98,7 +99,7 @@ emp_arr = [
 //getting employee emails
 const search_name = (empArr, name) => {
     let emp = empArr.find(employee => employee.name === name);
-    return emp.email;
+    return emp?.email;
 }
 const filter_gender = (empArr, gender) => {
     let emp = empArr.filter(employee => employee.gender === gender);
@@ -119,15 +120,34 @@ const filter_gender = (empArr, gender) => {
 console.log(search_name(emp_arr, "Fujiwara Takumi"));
 console.log(filter_gender(emp_arr, "F"));
 
+// say we want to find the email someone who doesn't exist, how? If we parse in a 
+// name, we will get an error! Optional Chaining exists my friend, check out
+// search_name() function, and see the "?" in emp?.email, that's the ticket
+console.log(search_name(emp_arr,undefined));
+// undefined is returned since emp does not exist, and thus we cannot find their email
+
+// for functions, optional chaining. If unsure if a method exists for an object/class
+// then putting ?. before the () makes sure that no err will be thrown if the 
+// function isn't real
+emp_arr[1].printName?.();
+
+//another example, for if one part is undefined or doesn't exist
+// if there was an array as a attribute to obj
+// say, emp_arr[6].hobbies[0], but no hobbies arr found.
+// then use emp_arr[6].hobbies?.[0] to prevent errors
+
+
 // perhaps some practice into closures is necessary too
 const closure_outside = (var_in) => {
-    let ok = var_in;
+    let ok = var_in ?? "poop"; //if var_in is null or undefined, switch to "poop"
     const closure_inside = () => {
         console.log(ok);
     }
     return closure_inside();
 }
 closure_outside("crap");
+closure_outside(); // poop
+// nullish coalescing -- setting something to a default if input is undefined or null
 
 const closure_out_2 = (number) => {
     const x_arr = [number, number*2, number*3];
