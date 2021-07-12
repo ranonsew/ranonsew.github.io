@@ -203,3 +203,8 @@ console.log(meow());
 setName("tommy");
 console.log(meow());
 
+
+
+// TODO: I hope at some point I do get to use this practice in making actually
+// dynamic web pages that are interesting to use, that way I can do many things
+// well
