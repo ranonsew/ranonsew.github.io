@@ -208,3 +208,79 @@ console.log(meow());
 // TODO: I hope at some point I do get to use this practice in making actually
 // dynamic web pages that are interesting to use, that way I can do many things
 // well
+
+const function_try = (name) => {
+    return `you are kinda bad ${name}`;
+}
+
+console.log(function_try("someone"));
+
+const object_person = {
+    name: "jeremy",
+    age: 19,
+    hello: function() {
+        console.log(this);
+    },
+    hello2: () => {
+        console.log(this);
+    }
+}
+
+object_person.hello();
+object_person.hello2();
+// difference between arrow function and also regular function calling
+// this in regular function references the object the method resides in
+// this in arrow function has no bindings, this becomes global object (need some time to understand fully)
+
+const clown = {
+    name: "bob"
+}
+const ghost = {
+    name: "joshua"
+}
+
+function the_face() {
+    return this.name;
+}
+const result = the_face.call(ghost); 
+// .call links the ghost object to the_face function
+
+console.log(result);
+
+
+// some information regarding closure arrow functions
+function Dog() {
+    var self = this;
+    this.breed = "shiba";
+    setTimeout(function() {
+        console.log(this.breed);
+        console.log(self.breed);
+    }, 10);
+}
+Dog(); // unable to use keyword this to reference this.breed, needs self
+// only references the function it is in (setTimeout)
+
+function Cat(){
+    this.breed = "gray";
+    setTimeout(() => {
+        console.log(this.breed);
+    }, 10);
+}
+Cat(); // arrow function allows for the use of this keyword
+// references the outside lexical environment object
+
+
+
+//useful function, array.map()
+const arr = [1,2,3,4];
+const squared_arr = [];
+for(i of arr){
+    squared_arr.push(i**2);
+}
+console.log(squared_arr);
+const squared_2 = arr.map(x => x**2);
+console.log(squared_2);
+const squaring = x => x**2;
+const squared_3 = arr.map(squaring);
+console.log(squared_3);
+
