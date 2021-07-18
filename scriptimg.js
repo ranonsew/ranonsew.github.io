@@ -99,7 +99,8 @@ emp_arr = [
 //getting employee emails
 const search_name = (empArr, name) => {
     let emp = empArr.find(employee => employee.name === name);
-    return emp?.email;
+    return emp?.email; 
+    // without ? then it returns error if name is null/undefined
 }
 const filter_gender = (empArr, gender) => {
     let emp = empArr.filter(employee => employee.gender === gender);
@@ -114,7 +115,7 @@ const filter_gender = (empArr, gender) => {
     //     // indexes, but objects themselves
     //     emails.push(e.email);
     // }
-    return emails;
+    return emails; // doesn't need ? because it returns an empty array even if gender is null/undefined
 }
 
 console.log(search_name(emp_arr, "Fujiwara Takumi"));
@@ -124,12 +125,14 @@ console.log(filter_gender(emp_arr, "F"));
 // name, we will get an error! Optional Chaining exists my friend, check out
 // search_name() function, and see the "?" in emp?.email, that's the ticket
 console.log(search_name(emp_arr,undefined));
+console.log(filter_gender(emp_arr,undefined));
 // undefined is returned since emp does not exist, and thus we cannot find their email
 
 // for functions, optional chaining. If unsure if a method exists for an object/class
 // then putting ?. before the () makes sure that no err will be thrown if the 
 // function isn't real
-emp_arr[1].printName?.();
+emp_arr[1].printName?.(); // without ?. it will return error
+//emp_arr[1].printName(); error: emp_arr[1].printName is not a function
 
 //another example, for if one part is undefined or doesn't exist
 // if there was an array as a attribute to obj
@@ -150,28 +153,34 @@ closure_outside(); // poop
 // nullish coalescing -- setting something to a default if input is undefined or null
 
 const closure_out_2 = (number) => {
+    const y_arr = [number, number, number];
+    console.log(number);
     const x_arr = [number, number*2, number*3];
     const closure_in_2 = () => {
         for(x of x_arr){
             console.log(x);
         }
+        //array.forEach(function(currentValue, index, arr), thisValue)
+        //x_arr.forEach((x) => console.log(x));
+        y_arr.forEach(function(item){
+            console.log(item);
+        });
     }
     return closure_in_2();
 }
-
 closure_out_2(8);
 
 //----------------------------------------------------------------------//
 // closure question that might be difficult for some to understand
-for(var i=0; i<3; i++){
-    const log = () => {console.log(i);}
+for(var lol=0; lol<3; lol++){
+    const log = () => {console.log(lol);}
     setTimeout(log, 100);
-}
+}console.log(lol); //lol accessible in global scope
 // vs
-for(let j=0; j<3; j++){
-    const logging = () => {console.log(j)};
-    setTimeout(logging, 100);
-}
+for(let joj=0; joj<3; joj++){
+    const log = () => {console.log(joj)};
+    setTimeout(log, 100);
+} // joj unavailable outside block scope
 //why? Because var is global scope, let is block scope.
 // i.e. setTimeout saves the reference to var (not the data of it)
 // whereas setTimeout saves the data in let (not (just) the reference)
