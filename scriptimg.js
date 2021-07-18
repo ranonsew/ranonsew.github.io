@@ -140,8 +140,11 @@ emp_arr[1].printName?.(); // without ?. it will return error
 // then use emp_arr[6].hobbies?.[0] to prevent errors
 
 
-// perhaps some practice into closures is necessary too
+
+
+// perhaps some practice into closures is necessary too. also foreach and nullish coalescing
 const closure_outside = (var_in) => {
+    // V-- Nullish Coalescing, returns right hand val if left hand val is undefined or null
     let ok = var_in ?? "poop"; //if var_in is null or undefined, switch to "poop"
     const closure_inside = () => {
         console.log(ok);
@@ -150,7 +153,7 @@ const closure_outside = (var_in) => {
 }
 closure_outside("crap");
 closure_outside(); // poop
-// nullish coalescing -- setting something to a default if input is undefined or null
+// nullish coalescing -- setting something to a default (right val) if input (left val) is undefined or null
 
 const closure_out_2 = (number) => {
     const y_arr = [number, number, number];
@@ -160,8 +163,12 @@ const closure_out_2 = (number) => {
         for(x of x_arr){
             console.log(x);
         }
+
+        // foreach's parameters
         //array.forEach(function(currentValue, index, arr), thisValue)
+        //thisValue = value of "this" or smth, read mozilla thingy for more info, it's a bit weird
         //x_arr.forEach((x) => console.log(x));
+        // trying out foreach
         y_arr.forEach(function(item){
             console.log(item);
         });
@@ -169,6 +176,9 @@ const closure_out_2 = (number) => {
     return closure_in_2();
 }
 closure_out_2(8);
+
+
+
 
 //----------------------------------------------------------------------//
 // closure question that might be difficult for some to understand
@@ -191,6 +201,8 @@ for(let joj=0; joj<3; joj++){
 // but with let, data from each let is stored in the stack, so at the end of 3 loops,
 // 0,1,2 are stored in the stack, so the timeouts print 0,1,2
 //----------------------------------------------------------------------//
+
+
 
 
 // something from fireship that I should understand to improve my understanding
@@ -224,6 +236,8 @@ const function_try = (name) => {
 
 console.log(function_try("someone"));
 
+
+
 const object_person = {
     name: "jeremy",
     age: 19,
@@ -241,6 +255,9 @@ object_person.hello2();
 // this in regular function references the object the method resides in
 // this in arrow function has no bindings, this becomes global object (need some time to understand fully)
 
+
+
+
 const clown = {
     name: "bob"
 }
@@ -255,6 +272,7 @@ const result = the_face.call(ghost);
 // .call links the ghost object to the_face function
 
 console.log(result);
+
 
 
 // some information regarding closure arrow functions
@@ -293,3 +311,103 @@ const squaring = x => x**2;
 const squared_3 = arr.map(squaring);
 console.log(squared_3);
 
+
+
+
+// trying out the ... thingy, spread syntax and also rest parameters (using self created sum functions)
+// first with spread syntax
+const sum_spreadSyntax = (a, b, c) => { // only 3 inputs
+    return a+b+c;
+}
+const arr_spreadSyntax_test1 = [1,2,3]; // 3 inputs
+const arr_spreadSyntax_test2 = [1,2,3,4]; // 4 inputs
+console.log(sum_spreadSyntax(...arr_spreadSyntax_test1));
+console.log(sum_spreadSyntax(...arr_spreadSyntax_test2));
+// spread syntax, spread out arr or obj into the number of arguments allowed to 
+// parse through, so with test2, if there is 4 inputs, but only 3 arguments may pass
+// then only the first 3 will pass, with no error, which is nice 
+
+// next with rest parameters, ... is not used as arguments, but as parameter variable
+const sum_restParameters = (...nums) => { // all params are input as an arr
+    // also implemented here is the array.reduce function, 
+    // array.reduce(reducer)
+    // reducer = (accumulator, currentValue, index, array) => { ... }
+    // also reduce is apparently the hardest JS method, wtf
+        
+    // notice: nums doesn't need the ... when not in param, num is an arr obj
+    console.log(typeof(nums));
+    console.log(nums);
+    const reducer = (accumulator, currentValue) => {
+        console.log(accumulator);
+        console.log(currentValue);
+        // look at array.reduce go, holy shit.
+        return accumulator + currentValue;
+    }
+    return nums.reduce(reducer);
+}
+console.log(sum_restParameters(1,2,3,4));
+// so rest param don't care how many param you have, it all just becomes an arr
+// for instance:
+const anotherTest_restParameters = (a,b,...others) => {
+    return [a,b,others];
+}
+console.log(anotherTest_restParameters("a","b","c","d"));
+
+
+
+// heya apparently there is the in keyword in these parts of programming
+// ima try to use the JSON styling
+const inKeyword_personTestObj = {
+    "name": "Random Person", // apparently JSON things work well still, great!
+    "age": 25,
+    "empty": "",
+    "undefined": undefined
+};
+// some example if statements to go with it to test the in keyword
+if(inKeyword_personTestObj.name){ // "name" still works, why wasn't I expecting it lmao
+    console.log("hey");
+    //this works
+}
+if(inKeyword_personTestObj.empty){
+    console.log("yo"); // "" returns false, like null or undefined
+}
+if(inKeyword_personTestObj.empty != null){
+    console.log("konnichiwa");
+    // this also works
+}
+if(inKeyword_personTestObj.undefined != null){ 
+    // but what if I want to check if "undefined" exists within inKeyword_personTestObj?
+    console.log("anyone there?"); // checking for null doesn't work, since it is null/undefined
+}
+if("undefined" in inKeyword_personTestObj){ // in keyword to the rescue!
+    console.log("thank you in keyword!");
+}
+
+
+
+// tagged template literals, used as a function
+// using template literals not just to inject js into str
+const tL_custom1 = () => {
+    return "Yo! ";
+}
+const tL_custom2 = (items) => {
+    // rest of the string passed through here as an arr, but where's the ${} js?
+    console.log(items);
+    return "Yo! ";
+}
+const tL_custom3 = (items, ...info) => {
+    // check it out, by increasing the params to the num of js...
+    // also using rest params, bit lazy lmao
+    console.log(items, info);
+    return "Yo! [" + items + "] - [" + info + "]";
+}
+const tL_name = "Ranon";
+const tL_hobby = "Gaming";
+console.log(tL_custom1`I'm ${tL_name} and I like ${tL_hobby}`);
+    // tL_custom1, logs out "Yo! " and not rest since rest is not parsed through
+console.log(tL_custom2`I'm ${tL_name} and I like ${tL_hobby}`);
+console.log(tL_custom3`I'm ${tL_name} and I like ${tL_hobby}`);
+// damn template literals, so weird yet they have a bunch of use when it comes to styling components
+// so much more info actually, check out "5 more must know js features that almost nobody knows" by web dev simplified, actually real interesting stuff that could be learnt
+// at this point this js file, which was supposed to be a testing ground
+// will become an information hoarding spot that I read every now and then to find something useful
