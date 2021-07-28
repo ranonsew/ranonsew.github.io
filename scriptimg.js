@@ -4,12 +4,12 @@ const yes = "no";
 function perhaps(){
     return " 8";
 }
-
 const probably = (first, second) => {
     return first + second;
 }
-
 console.log(probably(yes, perhaps()));
+
+
 
 const myArr = [
     {
@@ -25,8 +25,10 @@ const myArr = [
         email: "polygone@wheresmypolygons.org"
     }
 ];
-
 console.log(myArr);
+
+
+
 
 console.log("yes");
 
@@ -35,6 +37,9 @@ let number3 = 11;
 number2 = 15;
 let numbers123 = number1 + number2 + number3;
 numbers123;
+
+
+
 
 // const honda_civic = {brand:"Honda", name:"Civic", typeR:false, year:2018};
 // console.log(honda_civic);
@@ -50,8 +55,12 @@ const car_arr = [
 
 console.log(car_arr[1].model);
 
+
+
 today = new Date();
 console.log(today);
+
+
 
 class Headphone {
     constructor(name, type, connectivity, impedance){
@@ -65,11 +74,13 @@ class Headphone {
         // using `` instead of '' or "" is equivalent to python f-strings
     }
 }
-
 const shp9500 = new Headphone("Philips SHP9500", "open", "wired", "32");
 const pro82 = new Headphone("Takstar Pro 82", "closed", "wired", "32");
 console.log(shp9500.toString());
 console.log(pro82.toString());
+
+
+
 
 // next is a program thingy that changes object.values in an array
 class Employee {
@@ -142,6 +153,7 @@ emp_arr[1].printName?.(); // without ?. it will return error
 
 
 
+
 // perhaps some practice into closures is necessary too. also foreach and nullish coalescing
 const closure_outside = (var_in) => {
     // V-- Nullish Coalescing, returns right hand val if left hand val is undefined or null
@@ -205,6 +217,7 @@ for(let joj=0; joj<3; joj++){
 
 
 
+
 // something from fireship that I should understand to improve my understanding
 // of functions and closures
 function useCat(){
@@ -226,6 +239,8 @@ console.log(meow());
 
 
 
+
+
 // TODO: I hope at some point I do get to use this practice in making actually
 // dynamic web pages that are interesting to use, that way I can do many things
 // well
@@ -235,6 +250,7 @@ const function_try = (name) => {
 }
 
 console.log(function_try("someone"));
+
 
 
 
@@ -258,6 +274,7 @@ object_person.hello2();
 
 
 
+
 const clown = {
     name: "bob"
 }
@@ -272,6 +289,8 @@ const result = the_face.call(ghost);
 // .call links the ghost object to the_face function
 
 console.log(result);
+
+
 
 
 
@@ -298,6 +317,8 @@ Cat(); // arrow function allows for the use of this keyword
 
 
 
+
+
 //useful function, array.map()
 const arr = [1,2,3,4];
 const squared_arr = [];
@@ -310,6 +331,7 @@ console.log(squared_2);
 const squaring = x => x**2;
 const squared_3 = arr.map(squaring);
 console.log(squared_3);
+
 
 
 
@@ -355,6 +377,8 @@ console.log(anotherTest_restParameters("a","b","c","d"));
 
 
 
+
+
 // heya apparently there is the in keyword in these parts of programming
 // ima try to use the JSON styling
 const inKeyword_personTestObj = {
@@ -382,6 +406,8 @@ if(inKeyword_personTestObj.undefined != null){
 if("undefined" in inKeyword_personTestObj){ // in keyword to the rescue!
     console.log("thank you in keyword!");
 }
+
+
 
 
 
