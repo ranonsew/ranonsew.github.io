@@ -78,7 +78,15 @@ const shp9500 = new Headphone("Philips SHP9500", "open", "wired", "32");
 const pro82 = new Headphone("Takstar Pro 82", "closed", "wired", "32");
 console.log(shp9500.toString());
 console.log(pro82.toString());
-
+// // there's still one more thing we can do with template literals
+//     // okay so time to make a function
+// const shpStringing = (str, ...items) => {
+//     return `${str[0]}`;
+// }
+//     // first we can separate out each of the parts of the shp9500 obj
+// const { shpName, shpType, shpConnectivity, shpImpedance } = shp9500; 
+//     //
+// const shp95_hunj = shpStringing``;
 
 
 
@@ -111,7 +119,7 @@ emp_arr = [
 const search_name = (empArr, name) => {
     let emp = empArr.find(employee => employee.name === name);
     return emp?.email; 
-    // without ? then it returns error if name is null/undefined
+    // without ? then it returns error if name is null/undefined, or in other words, if emp is null
 }
 const filter_gender = (empArr, gender) => {
     let emp = empArr.filter(employee => employee.gender === gender);
@@ -257,10 +265,10 @@ console.log(function_try("someone"));
 const object_person = {
     name: "jeremy",
     age: 19,
-    hello: function() {
+    hello: function() { // obj scoped, this refers to object_person
         console.log(this);
     },
-    hello2: () => {
+    hello2: () => { // function scoped, this refers to this function as obj
         console.log(this);
     }
 }
@@ -427,13 +435,22 @@ const tL_custom3 = (items, ...info) => {
     console.log(items, info);
     return "Yo! [" + items + "] - [" + info + "]";
 }
+const tL_custom4 = (items, ...info) => {
+    // tL_custom 3 but with actually good return statements
+    console.log(items, info);
+    return `Yo! ${items[0]} ${info[0]} ${items[1]} ${info[1]}`;
+}
 const tL_name = "Ranon";
 const tL_hobby = "Gaming";
 console.log(tL_custom1`I'm ${tL_name} and I like ${tL_hobby}`);
     // tL_custom1, logs out "Yo! " and not rest since rest is not parsed through
 console.log(tL_custom2`I'm ${tL_name} and I like ${tL_hobby}`);
 console.log(tL_custom3`I'm ${tL_name} and I like ${tL_hobby}`);
+console.log(tL_custom4`I'm ${tL_name} and I like ${tL_hobby}`);
 // damn template literals, so weird yet they have a bunch of use when it comes to styling components
+    // doesn't look like much here but it could be useful to know this in the future
+
+    
 // so much more info actually, check out "5 more must know js features that almost nobody knows" by web dev simplified, actually real interesting stuff that could be learnt
 // at this point this js file, which was supposed to be a testing ground
 // will become an information hoarding spot that I read every now and then to find something useful
