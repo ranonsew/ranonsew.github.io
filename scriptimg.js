@@ -70,6 +70,8 @@ class Headphone {
         this.impedance = impedance;
     }
     toString(){
+        const {x, y, z, a} = this; // doing it like this doesn't work with the "this" object, and only would work with outside created objects.
+        return `The ${x} is ${y}-backed, is a ${z} headphone and has an impedance of ${a} ohms.`; 
         return `The ${this.name} is ${this.type}-backed, is a ${this.connectivity} headphone and has an impedance of ${this.impedance} ohms.`; 
         // using `` instead of '' or "" is equivalent to python f-strings
     }
