@@ -49,7 +49,7 @@ console.log(strPow_ts(10, 2)); // str returned
 
 // can also enforce the shape of an object
 // can maintain required properties, then add additional properties too
-interface Person {
+interface Person1 {
     firstName: string,
     lastName: string,
     [key:string]:any // additional properties may be added
@@ -57,15 +57,17 @@ interface Person {
 // if person1 doesn't have firstName or lastName, or they are of wrong type,
 // or there's extra in the object (unless additional properties allowed [see above]).
 // an error will appear
-const person1:Person = {
+const person1:Person1 = {
     firstName: "person",
     lastName: "uno"
 }
-const person2:Person = {
+const person2:Person1 = {
     firstName: "Jerry",
     lastName: "Smith",
     fast: true // additional property allowed thanks to [key:string]:any
 }
+
+// with strict mode available, it seems that Person already exists out there. ?
 
 // also create own types from scratch, and enforce them for variables
 type Style_1 = string;
