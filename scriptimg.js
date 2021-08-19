@@ -480,3 +480,18 @@ let example_bind = example_call.bind(example_obj);
 console.log(example_bind("Alcohol", "Driving test"));
 
 
+
+
+// JS Promises -- resolving things with promises, .thens and error catching
+// fetch api as well (since it is built on JS promises)
+
+
+
+
+// Async Await -- no need for callbacks
+// asynchronous functionality that do not slow down the process cycle
+// which is a nice touch when certain items do not require a process before it
+// to finish in order to complete its own things (and things which do await for it)
+// so an async function will say that they will do their own things in the process cycle
+// then await stuff will be the things awaiting the async to finish so they can be 
+// added to the callstack
