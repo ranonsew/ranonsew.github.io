@@ -44,5 +44,51 @@ const strPow_ts = (x:number, y:number):string => {
     return Math.pow(x, y).toString();
 }
 console.log(strPow_ts(10, 2)); // str returned
+// also notice how only numbers can be passed to the function (strong typed parameters)
+
 
 // can also enforce the shape of an object
+// can maintain required properties, then add additional properties too
+interface Person {
+    firstName: string,
+    lastName: string,
+    [key:string]:any // additional properties may be added
+}
+// if person1 doesn't have firstName or lastName, or they are of wrong type,
+// or there's extra in the object (unless additional properties allowed [see above]).
+// an error will appear
+const person1:Person = {
+    firstName: "person",
+    lastName: "uno"
+}
+const person2:Person = {
+    firstName: "Jerry",
+    lastName: "Smith",
+    fast: true // additional property allowed thanks to [key:string]:any
+}
+
+// also create own types from scratch, and enforce them for variables
+type Style_1 = string;
+let font_1: Style_1 = "something";
+// above is redundant, what about this next one which has more use?
+type Style_2 = 'bold' | 'italic' | 23;
+let font_2: Style_2 = "bold"; 
+let font_3: Style_2 = 23;
+// if not bold or italic or 23, error appears, variable enforcing
+
+// can also enforce arrays like vars
+let arr_ts_1:any[] = []; // allow any
+let arr_ts_2:number[] = []; // allow number only, etc
+let arr_ts_3:Person[] = []; // even objects, let's go, works with Person interface
+// we can also do this:
+type myList_ts = [number?, string?, boolean?]; 
+// ? so that the compiler doesn't show error for empty array, it usually thinks there should be something there otherwise
+let arr_ts_4:myList_ts = []; // so now it only allows 1 num, 1 str, 1 bool
+
+// then for something called generics, use a type internally of a class
+class Observable<T> {
+    constructor(public value:T) {} // strong type the type of the class at later time
+}
+let obs_ts_1:Observable<number>;
+let obs_ts_2:Observable<Person>;
+let obs_ts_3 = new Observable(23);
