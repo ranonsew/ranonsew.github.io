@@ -456,3 +456,27 @@ console.log(tL_custom4`I'm ${tL_name} and I like ${tL_hobby}`);
 // so much more info actually, check out "5 more must know js features that almost nobody knows" by web dev simplified, actually real interesting stuff that could be learnt
 // at this point this js file, which was supposed to be a testing ground
 // will become an information hoarding spot that I read every now and then to find something useful
+
+
+
+// function call, apply and bind
+// no arrow functions here, since they won't work here. Good thing for testing 
+// with quokka. 
+const example_obj = {
+    name: "Joshua",
+    tag: "SlowGhost16"
+}
+function example_call(a, b) { // arrow functions won't work here
+    let { name, tag } = this;
+    return `His name was ${tag}, he was a ${name}, he drank ${a} and forgot to sleep before his ${b}.`
+}
+console.log(example_call.call(example_obj, "alcohol", "driving test"));
+function example_apply(arr) {
+    let { name, tag } = this;
+    return `His name was ${tag}, he was a ${name}, he drank ${arr[0]} and forgot to sleep before his ${arr[1]}.`
+}
+console.log(example_call.apply(example_obj, ["alcohol", "driving test"]));
+let example_bind = example_call.bind(example_obj);
+console.log(example_bind("Alcohol", "Driving test"));
+
+
