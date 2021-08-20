@@ -1,0 +1,17 @@
+/* div.container {
+    display: grid;
+    place-items: center;
+} */
+
+/* div.darn {
+    display: grid;
+    place-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+} */
+
+body {
+    display: grid;
+    place-items: center;
+    height: 100%;
+}

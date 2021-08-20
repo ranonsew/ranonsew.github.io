@@ -1,0 +1,14 @@
+.container {
+    display: grid;
+    place-items: center;
+    margin-top: 5em;
+}
+section#section {
+    display: grid;
+    place-items: center;
+}
+/* button {
+    float: left;
+    padding: 0.5em 1em;
+    margin: 0.5em;
+} */

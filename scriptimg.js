@@ -263,7 +263,7 @@ console.log(function_try("someone"));
 
 
 
-
+// arrow functions vs normal functions
 const object_person = {
     name: "jeremy",
     age: 19,
@@ -274,32 +274,34 @@ const object_person = {
         console.log(this);
     }
 }
-
-object_person.hello();
-object_person.hello2();
+object_person.hello(); // logs name, age, hello, hello2
+object_person.hello2(); // logs {}
 // difference between arrow function and also regular function calling
 // this in regular function references the object the method resides in
-// this in arrow function has no bindings, this becomes global object (need some time to understand fully)
+// this in arrow function has no bindings, 
+// this becomes global object (need some time to understand fully)
 
-
-
-
-
-const clown = {
-    name: "bob"
+// how about another example
+class example_person_obj {
+    constructor(name) {
+        this.name = name;
+    }
+    printNameArrow() {
+        setTimeout(() => { // this as in the obj, not setTimeout
+            console.log("arrow: " + this.name);
+        });
+    }
+    printNameFunction() {
+        setTimeout(function() { // this as in the setTimeout function
+            console.log("Function: " + this.name);
+        });
+    }
 }
-const ghost = {
-    name: "joshua"
-}
-
-function the_face() {
-    return this.name;
-}
-const result = the_face.call(ghost); 
-// .call links the ghost object to the_face function
-
-console.log(result);
-
+let bobby_person = new example_person_obj("bobby");
+bobby_person.printNameArrow(); // arrow: bobby
+bobby_person.printNameFunction(); // function: undefined
+// so arrow function references this as the object, rather than the setTimeout it's in
+// normal function references this as setTimeout that it's in. 
 
 
 
@@ -462,6 +464,19 @@ console.log(tL_custom4`I'm ${tL_name} and I like ${tL_hobby}`);
 // function call, apply and bind
 // no arrow functions here, since they won't work here. Good thing for testing 
 // with quokka. 
+const clown = {
+    name: "bob"
+}
+const ghost = {
+    name: "joshua"
+}
+function the_face() {
+    return this.name;
+}
+const result = the_face.call(ghost); 
+console.log(result);
+
+// another example
 const example_obj = {
     name: "Joshua",
     tag: "SlowGhost16"
@@ -478,6 +493,7 @@ function example_apply(arr) {
 console.log(example_call.apply(example_obj, ["alcohol", "driving test"]));
 let example_bind = example_call.bind(example_obj);
 console.log(example_bind("Alcohol", "Driving test"));
+
 
 
 
