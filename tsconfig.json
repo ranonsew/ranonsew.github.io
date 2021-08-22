@@ -1,9 +1,0 @@
-{
-    "compilerOptions": {
-        "target": "ESNext",
-        "watch": false,
-        "lib": ["DOM", "ES2017"],
-        "allowJs": true,
-        "strict": true,
-    }
-}
