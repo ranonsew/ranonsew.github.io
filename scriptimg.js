@@ -71,7 +71,8 @@ class Headphone {
     }
     toString(){
         const {x, y, z, a} = this; // doing it like this doesn't work with the "this" object, and only would work with outside created objects.
-        return `The ${x} is ${y}-backed, is a ${z} headphone and has an impedance of ${a} ohms.`; 
+        console.log(this);
+        // return `The ${x} is ${y}-backed, is a ${z} headphone and has an impedance of ${a} ohms.`; 
         return `The ${this.name} is ${this.type}-backed, is a ${this.connectivity} headphone and has an impedance of ${this.impedance} ohms.`; 
         // using `` instead of '' or "" is equivalent to python f-strings
     }
@@ -80,15 +81,6 @@ const shp9500 = new Headphone("Philips SHP9500", "open", "wired", "32");
 const pro82 = new Headphone("Takstar Pro 82", "closed", "wired", "32");
 console.log(shp9500.toString());
 console.log(pro82.toString());
-// // there's still one more thing we can do with template literals
-//     // okay so time to make a function
-// const shpStringing = (str, ...items) => {
-//     return `${str[0]}`;
-// }
-//     // first we can separate out each of the parts of the shp9500 obj
-// const { shpName, shpType, shpConnectivity, shpImpedance } = shp9500; 
-//     //
-// const shp95_hunj = shpStringing``;
 
 
 
@@ -103,7 +95,6 @@ class Employee {
         this.role = role; //str -- Manager
     }
 }
-
 emp_arr = [
     new Employee("Bob's Burgers", 1453, 25, "bob@yahoo.com.au", "M", "Manager"),
     new Employee("Jennifer Jenn", 1325, 30, "jen@gmail.com", "F", "Manager"),
@@ -112,10 +103,6 @@ emp_arr = [
     new Employee("Fujiwara Takumi", 1985, 18, "takumi@fujiwaratofu.org", "M", "driver"),
     new Employee("Ray", 1565, 20, undefined, "M", "person") // example of someone without an email
 ];
-
-// console.log(emp_arr[0].name);
-// emp_arr[0].name = "Flamie";
-// console.log(emp_arr[0].name);
 
 //getting employee emails
 const search_name = (empArr, name) => {
