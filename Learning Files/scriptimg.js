@@ -503,14 +503,26 @@ console.log(example_bind("Alcohol", "Driving test"));
 
 // JS Promises -- resolving things with promises, .thens and error catching
 // fetch api as well (since it is built on JS promises)
+// example of a basic promise
 const x_promise = new Promise((resolve, reject) => {
-    resolve();
-    reject();
+    let x = 0;
+    if(x == 0) {
+        resolve("OK");
+    } else {
+        reject("NOT OK");
+    }
 });
 x_promise.then(
-    (value) => {},
-    (error) => {}
+    (value) => { console.log(value); },
+    (error) => { console.log(error); }
 );
+
+// what about some more examples of promises?
+// how about some comparisons of callbacks and promises, followed by the next thing of
+// asynchronous functions via async await?
+
+
+
 
 
 // Async Await -- no need for callbacks
