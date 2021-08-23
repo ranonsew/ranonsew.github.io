@@ -1,5 +1,7 @@
 // CTRL + K, then press Q. Quokka works now, yay! This also means Node is installed
 
+"use strict";
+
 const yes = "no";
 function perhaps(){
     return " 8";
@@ -57,7 +59,7 @@ console.log(car_arr[1].model);
 
 
 
-today = new Date();
+let today = new Date();
 console.log(today);
 
 
@@ -95,7 +97,8 @@ class Employee {
         this.role = role; //str -- Manager
     }
 }
-emp_arr = [
+
+const emp_arr = [
     new Employee("Bob's Burgers", 1453, 25, "bob@yahoo.com.au", "M", "Manager"),
     new Employee("Jennifer Jenn", 1325, 30, "jen@gmail.com", "F", "Manager"),
     new Employee("Lisa Tan", 1398, 27, "lisa.tan@yahoo.com.au", "F", "CEO"),
@@ -113,7 +116,7 @@ const search_name = (empArr, name) => {
 const filter_gender = (empArr, gender) => {
     let emp = empArr.filter(employee => employee.gender === gender);
     const emails = [];
-    for(e in emp){ // for indexes in the array, as apposed to other for loops
+    for(let e in emp){ // for indexes in the array, as apposed to other for loops
         console.log(e);
         emails.push(emp[e].email);
     }
@@ -169,7 +172,7 @@ const closure_out_2 = (number) => {
     console.log(number);
     const x_arr = [number, number*2, number*3];
     const closure_in_2 = () => {
-        for(x of x_arr){
+        for(let x of x_arr){
             console.log(x);
         }
 
@@ -199,7 +202,7 @@ for(var lol=0; lol<3; lol++){
 for(let joj=0; joj<3; joj++){
     const log = () => {console.log(joj)};
     setTimeout(log, 100);
-} // joj unavailable outside block scope
+}// joj unavailable outside block scope
 //why? Because var is global scope, let is block scope.
 // i.e. setTimeout saves the reference to var (not the data of it)
 // whereas setTimeout saves the data in let (not (just) the reference)
@@ -294,24 +297,25 @@ bobby_person.printNameFunction(); // function: undefined
 
 
 // some information regarding closure arrow functions
-function Dog() {
-    var self = this;
-    this.breed = "shiba";
-    setTimeout(function() {
-        console.log(this.breed);
-        console.log(self.breed);
-    }, 10);
-}
-Dog(); // unable to use keyword this to reference this.breed, needs self
-// only references the function it is in (setTimeout)
+// function Dog() {
+//     var self = this;
+//     this.breed = "shiba"; // cannot set propertyh breed of undefined (strict mode has no idea who this is)
+//     setTimeout(function() {
+//         console.log(this.breed);
+//         console.log(self.breed);
+//     }, 10);
+// }
+// Dog(); // unable to use keyword this to reference this.breed, needs self
+// // only references the function it is in (setTimeout)
 
-function Cat(){
-    this.breed = "gray";
-    setTimeout(() => {
-        console.log(this.breed);
-    }, 10);
-}
-Cat(); // arrow function allows for the use of this keyword
+// same as the Dog() function, strict mode has no idea what this is
+// function Cat(){
+//     this.breed = "gray";
+//     setTimeout(() => {
+//         console.log(this.breed);
+//     }, 10);
+// }
+// Cat(); // arrow function allows for the use of this keyword
 // references the outside lexical environment object
 
 
@@ -321,7 +325,7 @@ Cat(); // arrow function allows for the use of this keyword
 //useful function, array.map()
 const arr = [1,2,3,4];
 const squared_arr = [];
-for(i of arr){
+for(let i of arr){
     squared_arr.push(i**2);
 }
 console.log(squared_arr);
@@ -487,6 +491,24 @@ console.log(example_bind("Alcohol", "Driving test"));
 
 // JS Promises -- resolving things with promises, .thens and error catching
 // fetch api as well (since it is built on JS promises)
+// example of a basic promise
+const x_promise = new Promise((resolve, reject) => {
+    let x = 0;
+    if(x == 0) {
+        resolve("OK");
+    } else {
+        reject("NOT OK");
+    }
+});
+x_promise.then(
+    (value) => { console.log(value); },
+    (error) => { console.log(error); }
+);
+
+// what about some more examples of promises?
+// how about some comparisons of callbacks and promises, followed by the next thing of
+// asynchronous functions via async await?
+
 
 
 
@@ -498,3 +520,13 @@ console.log(example_bind("Alcohol", "Driving test"));
 // so an async function will say that they will do their own things in the process cycle
 // then await stuff will be the things awaiting the async to finish so they can be 
 // added to the callstack
+
+
+// additional note down here at the bottom of the script page.
+// I think it would be in my own personal interests to split this script into
+// various other scripts to be more specific with search terms and
+// make studying this file a whole lot easier in the future
+// and also organizing the files into various folders so I know what of this
+// git repo is my learning, and which is the parts that actually have to do
+// with the github.io
+// so that would also be helpful to make sure I can understand everything
