@@ -520,3 +520,13 @@ x_promise.then(
 // so an async function will say that they will do their own things in the process cycle
 // then await stuff will be the things awaiting the async to finish so they can be 
 // added to the callstack
+
+
+// additional note down here at the bottom of the script page.
+// I think it would be in my own personal interests to split this script into
+// various other scripts to be more specific with search terms and
+// make studying this file a whole lot easier in the future
+// and also organizing the files into various folders so I know what of this
+// git repo is my learning, and which is the parts that actually have to do
+// with the github.io
+// so that would also be helpful to make sure I can understand everything
