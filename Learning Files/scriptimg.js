@@ -509,8 +509,99 @@ x_promise.then(
 // how about some comparisons of callbacks and promises, followed by the next thing of
 // asynchronous functions via async await?
 
+// so using an example from web dev simplified, converting callbacks to promises
+// sidenote: promises are meant to replace callbacks, make it easier to program with
+// and also make it easier for programmers to read it compared to callbacks
+
+// here are the variables used for the following functions to work
+// userLeft true means we should get :(, userWatchingCatMeme true means we should get <
+// both false means that we get Subscribe!
+const userLeft = false;
+const userWatchingCatMeme = true;
+
+//so first the callback function
+function watchTutorialCallback(callback, errorCallback) {
+    if(userLeft) {
+        errorCallback({
+            name: "User Left",
+            message: ":("
+        });
+    } else if(userWatchingCatMeme) {
+        errorCallback({
+            name: "User Watching Cat Memes",
+            message: "WebDevSimplified < Cat"
+        });
+    } else {
+        callback("Thumbs up and Subscribe!");
+    }
+}
+// some code to run the callback
+watchTutorialCallback((message) => {
+    console.log("Success: " + message);
+}, (error) => {
+    console.log(error.name + " " + error.message);
+});
 
 
+// so now how about the promise version of this callback?
+function watchTutorialPromise() {
+    return new Promise((resolve, reject) => {
+        if(userLeft) {
+            reject({
+                name: "User Left",
+                message: ":("
+            });
+        } else if(userWatchingCatMeme) {
+            reject({
+                name: "User Watching Cat Memes",
+                message: "WebDevSimplified > Cat"
+            });
+        } else {
+            resolve("Thumbs up and Subscribe!");
+        }
+    });
+}
+// the code is almost exactly the same, so now we are returning a promise instead of callbacks
+// callback calling code is changed to use .then and .catch for the resolve and reject statements
+watchTutorialPromise().then((message) => {
+    console.log("Success: " + message);
+}).catch((error) => {
+    console.log(error.name + " " + error.message);
+})
+// the reason for using promises over callbacks, first code is cleaner, 
+// with callbacks nested, there will be continually being nested, leading to a callback in a callback in a callback, leading to callback hell
+// instead we just use a .then or a .catch, not needing all the indentations
+
+// okay so there is another example of using JS Promises by webdevsimplified
+// 3 simple resolved promises
+const recordVid1 = new Promise((resolve, reject) => {
+    resolve("Video 1 recorded");
+});
+const recordVid2 = new Promise((resolve, reject) => {
+    resolve("Video 2 recorded");
+});
+const recordVid3 = new Promise((resolve, reject) => {
+    resolve("Video 3 recorded");
+});
+// if I want to do something after all 3 are recorded, we can use promise.all
+Promise.all([
+    recordVid1, 
+    recordVid2, 
+    recordVid3
+]).then((messages) => {
+    console.log(messages); // console logged the array when all 3 of these finished
+}); // we can't see it with this example, but all these are asynchronous and run at the same time, so if vid1 is slow, then vid2 and vid3 will finish first
+    // like if calling a databse or smth
+
+// what if we want to call a message when only 1 completes?
+Promise.race([
+    recordVid1,
+    recordVid2,
+    recordVid3
+]).then((message) => {
+    console.log(message);
+});
+// this leads well into async await probably
 
 
 // Async Await -- no need for callbacks
@@ -520,6 +611,29 @@ x_promise.then(
 // so an async function will say that they will do their own things in the process cycle
 // then await stuff will be the things awaiting the async to finish so they can be 
 // added to the callstack
+
+// there are things that are called micro and macro tasks
+// in the (single threaded) event loop, when an asynchronous task is called,
+// it tells the event loop, like here's a function I need to run, but I need to get some
+// data from a db first. So the event loop says okay, and continues doing other things while the data is being called.
+// that is done on a separate event loop, and when that is finished, it will let the event loop know
+// that it is ready to be called back, but here's the micro macro task thing
+// if it's a setTimeout or setInterval (macro tasks), it will be called back at the start of the next event loop
+// else it is a micro task and it is called before the start of the next event loop
+// thx fireship.io, here's their example
+console.log("Synchronous 1");
+setTimeout(_ => console.log("Timeout 2"), 0); // queued as a macro task
+Promise.resolve().then(_ => console.log("Promise 3")); // queued as a micro task
+console.log("Synchronous 4");
+// Synch 1, Synch 4, Promise 3, Timeout 2
+
+
+// so onto some more async await stuff and promises
+
+
+
+
+
 
 
 // additional note down here at the bottom of the script page.
