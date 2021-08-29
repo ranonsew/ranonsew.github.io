@@ -80,3 +80,22 @@ async function doWork() { // need to tell js this func is async, so now it retur
 doWork(); // in terms of code length, async await is shorter and easier to implement
 // no need for callback hell, also no need .then() chain of doom
 // in the future will most likely have a lot of try catch statements instead lmao
+
+
+// something cool for async await, attempting to avoid try-catch hell
+// try-catch hell is a tower of try catch for each awaited value
+// one method is to add .catch() to every awaited variable
+    // nicer looking, but still kinda ass
+// another method is to create a function to standardize err handling
+// an async function that implements a try-catch to replace the usual
+// for example
+async function awesome() {
+    try {
+        const data = await promise;
+        return [data, null];
+    } catch(err) {
+        console.error(err);
+        return [null, err];
+    }
+}
+// this can later be destructured for easier use!
