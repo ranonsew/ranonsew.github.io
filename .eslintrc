@@ -1,9 +1,11 @@
 {
   "extends": "@antfu",
+  // custom rules based on personal preferences
   "rules": {
     "semi": "off",
     "@typescript-eslint/semi": ["warn", "always"],
     "quotes": "off",
-    "@typescript-eslint/quotes": ["warn", "double"]
+    "@typescript-eslint/quotes": ["warn", "double"],
+    "antfu/if-newline": "warn"
   }
 }
