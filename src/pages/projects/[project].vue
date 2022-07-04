@@ -9,7 +9,7 @@ const route = useRoute();
 </script>
 
 <template>
-  {{ props }}
+  {{ route }}
   <a
     class="item flex relative items-center"
     :class="route.params.link ? '' : 'opacity-0 pointer-events-none h-0 -mt-8 -mb-4'"
