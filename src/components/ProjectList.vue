@@ -16,7 +16,7 @@ const router = useRouter();
         class="item flex relative items-center"
         :class="item.link ? '' : 'opacity-0 pointer-events-none h-0 -mt-8 -mb-4'"
         :title="item.name"
-        @click="router.push({ name: `project`, params: { project: item.name, link: item.link, desc: item.desc, icon: item.icon } })"
+        @click="router.push({ path: `/projects/${encodeURIComponent(item)}`, params: { link: item.link, desc: item.desc, icon: item.icon } })"
       >
         <div v-if="item.icon">
           <span :class="item.icon" />
@@ -33,6 +33,10 @@ const router = useRouter();
     </div>
   </div>
 </template>
+
+<route lang="yaml">
+props: true
+</route>
 
 <style scoped>
 .project-grid {

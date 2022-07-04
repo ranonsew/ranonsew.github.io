@@ -14,14 +14,14 @@ projects:
       desc: "A portion of a group project. This part was to figure out how to use docker-compose and connect the main application (done by others) to an SMS api through AMQP. Done in Python and TypeScript."
       icon: "i-carbon-api"
   Personal Projects:
-    - name: ""
-      link: ""
-      desc: ""
-      icon: ""
-    - name: ""
-      link: ""
-      desc: ""
-      icon: ""
+    - name: "placeholder name"
+      link: "https://www.google.com/"
+      desc: "placeholder description"
+      icon: "i-carbon-campsite"
+    - name: "placeholder name"
+      link: "https://www.yahoo.com/"
+      desc: "placeholder description"
+      icon: "i-carbon-campsite"
 ---
 
 <ProjectList :projects="frontmatter.projects" />
