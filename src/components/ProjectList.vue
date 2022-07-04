@@ -1,4 +1,7 @@
-<!-- listing out projects in pages/projects/index.md -->
+<!--
+  need to rethink how things will be done when it comes to displaying the projects like this
+  since on reload, the parameters do not all go over
+-->
 <script setup lang="ts">
 import { type Project } from "../pages/projects/types";
 const props = defineProps<{ projects: Record<string, any[]> }>();
