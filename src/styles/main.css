@@ -8,7 +8,7 @@ body,
   padding: 0;
 }
 
-html.dark {
+html.dark, select.dark {
   background: #121212;
 }
 

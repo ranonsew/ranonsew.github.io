@@ -8,14 +8,13 @@ title: About
   <h3>About</h3>
 </div>
 
-[Vitesse](https://github.com/antfu/vitesse) is an opinionated [Vite](https://github.com/vitejs/vite) starter template made by [@antfu](https://github.com/antfu) for mocking apps swiftly. With **file-based routing**, **components auto importing**, **markdown support**, I18n, PWA and uses **UnoCSS** for styling and icons.
+Hello, my name is Ranon, an aspiring developer and current student at [SMU](https://www.smu.edu.sg/).
+My current passion is in programming, and am currently in the process of mastering various technologies, such as TypeScript, Vue, Go and MongoDB.
 
-```js
-// syntax highlighting example
-function vitesse() {
-  const foo = "bar";
-  console.log(foo);
-}
-```
+This project uses the [Vitesse](https://github.com/antfu/vitesse) by [Anthony Fu](https://github/antfu), which is *"an opinionated [Vite](https://github.com/vitejs/vite) starter template for mocking apps swiftly"*. I have chosen this template to speed up the structuring process as it comes prebuilt with various useful features I belive will be useful for my learning.
 
-Check out the [GitHub repo](https://github.com/antfu/vitesse) for more details.
+
+Outside of programming, I enjoy playing video games and hanging out with friends.
+
+
+[[Github]](https://github.com/ranonsew) | [[LinkedIn]](https://www.linkedin.com/in/ranon%20sew%20yijie)
