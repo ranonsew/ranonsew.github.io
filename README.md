@@ -105,11 +105,18 @@ TODO list
 - [ ] Customize more for portfolio thing
 - [ ] Take info from linkedin or whatever and make stuff that works out
 - [ ] Remove unused stuff (a bit lazy to do so, but will clean up project repo more)
-- [ ] 
-- [ ] 
-- [ ] 
 
-And, enjoy :)
+## Ideas for portfolio project
+- [ ] Projects, school and personal
+- [ ] Project ideas
+- [ ] Examples of projects (mini projects built into the repo/site)
+- [ ] Use of pinia and MongoDB & Mongoose, to store some project stuff or feedback things.
+- [ ] Bezier-curve style svg background and/or parallax scrolling effects
+- [ ] Icon Navbar at the top right of the screen
+- [ ] Markdown files for most pages, unless reactivity is necessary
+- [ ] use i18n as much as possible for language variety
+- [ ] find a nice looking language selection/toggle method
+- [ ] 
 
 ## Usage
 
