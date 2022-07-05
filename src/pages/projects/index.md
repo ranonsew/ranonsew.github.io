@@ -12,6 +12,7 @@ projects:
     - name: "Microservice SMS"
       link: "https://github.com/ranonsew/is213-microservice-sms"
       desc: "A portion of a group project. This part was to figure out how to use docker-compose and connect the main application (done by others) to an SMS api through AMQP. Done in Python and TypeScript."
+      long_desc: ""
       icon: "i-carbon-api"
   Personal Projects:
     - name: "placeholder name"

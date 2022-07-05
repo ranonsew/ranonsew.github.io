@@ -116,7 +116,7 @@ TODO list
 - [ ] Markdown files for most pages, unless reactivity is necessary
 - [ ] use i18n as much as possible for language variety
 - [ ] find a nice looking language selection/toggle method
-- [ ] 
+- [ ] find a section where dynamic components might be used without it being out of place
 
 ## Usage
 

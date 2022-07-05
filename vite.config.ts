@@ -7,7 +7,7 @@ import Layouts from "vite-plugin-vue-layouts";
 import Components from "unplugin-vue-components/vite";
 import AutoImport from "unplugin-auto-import/vite";
 import Markdown from "vite-plugin-vue-markdown";
-import { VitePWA } from "vite-plugin-pwa";
+// import { VitePWA } from "vite-plugin-pwa";
 import VueI18n from "@intlify/vite-plugin-vue-i18n";
 import Inspect from "vite-plugin-inspect";
 import Prism from "markdown-it-prism";
@@ -90,6 +90,7 @@ export default defineConfig({
     }),
 
     // https://github.com/antfu/vite-plugin-pwa
+    /*
     VitePWA({
       registerType: "autoUpdate",
       includeAssets: ["favicon.svg", "safari-pinned-tab.svg"],
@@ -117,6 +118,7 @@ export default defineConfig({
         ],
       },
     }),
+    */
 
     // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
     VueI18n({
