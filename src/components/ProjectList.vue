@@ -7,19 +7,19 @@ import { type Project } from "../pages/projects/types";
 const props = defineProps<{ projects: Record<string, any[]> }>();
 const router = useRouter();
 // turns out the solution was to move the thing out into its own function?
-const go = ({ name: project, link, desc, icon }: Project) => router.push({ name: "project-individual", params: { project, link, desc, icon } });
+const go = ({ name, link, desc, icon }: Project) => router.push({ name: "project-individual", params: { name, link, desc, icon } });
 // const go2 = () => router.push({ name: "project-individual", params: { project: 1, link: 2, desc: 3, icon: "i-carbon-campsite" } });
 </script>
 
 <template>
-  <div v-for="(project, key) in props.projects" :key="key">
+  <div v-for="(project, key, index) in props.projects" :key="index">
     <h4 mt-8 font-bold>
       {{ key }}
     </h4>
     <div class="project-grid py-2 gap-2">
       <button
-        v-for="(item, index) in project"
-        :key="index"
+        v-for="(item, idx) in project"
+        :key="idx"
         class="item flex relative items-center"
         :class="item.link ? '' : 'opacity-0 pointer-events-none h-0 -mt-8 -mb-4'"
         :title="item.name"
@@ -32,7 +32,7 @@ const go = ({ name: project, link, desc, icon }: Project) => router.push({ name:
           <div text-normal>
             {{ item.name }}
           </div>
-          <div text-sm opacity-50 font-normal>
+          <div max-w-xs truncate text-sm opacity-50 font-normal>
             {{ item.desc }}
           </div>
         </div>
@@ -40,10 +40,6 @@ const go = ({ name: project, link, desc, icon }: Project) => router.push({ name:
     </div>
   </div>
 </template>
-
-<route lang="yaml">
-props: true
-</route>
 
 <style scoped>
 .project-grid {
